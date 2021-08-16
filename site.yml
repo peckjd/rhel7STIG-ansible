@@ -1,0 +1,7 @@
+- hosts: localhost
+  gather_facts: no
+  vars_files:
+    - custom_config.yml
+  roles:
+    - rhel7STIG
+    - rhel7STIG-manual-checks

@@ -1,0 +1,13 @@
+- name: populate package facts
+  package_facts:
+# R-219059 RHEL-07-020111
+- name: stigrule_219059__etc_dconf_db_local_d_00_no_automount
+  ini_file:
+    path: /etc/dconf/db/local.d/00-No-Automount
+    section: org/gnome/desktop/media-handling
+    value: "{{ rhel7STIG_stigrule_219059__etc_dconf_db_local_d_00_no_automount_Value }}"
+    no_extra_spaces: yes
+  notify: dconf_update
+  when:
+    - rhel7STIG_stigrule_219059_Manage
+    - "'dconf' in packages"

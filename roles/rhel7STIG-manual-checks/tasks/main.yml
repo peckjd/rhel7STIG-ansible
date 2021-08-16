@@ -1,0 +1,57 @@
+- name: populate package facts
+  package_facts:
+# R-204456 RHEL-07-020231
+- name: rhel7STIG_stigrule_204456__etc_dconf_db_local_d_00_disable_CAD
+  ini_file:
+    path: /etc/dconf/db/local.d/00-disabled-CAD
+    section: org/gnome/settings-daemon/plugins/media-keys
+    option: logout
+    value: "{{ rhel7STIG_stigrule_204456__etc_dconf_db_local_d_00_disable_CAD_Value }}"
+    no_extra_spaces: yes
+  notify: dconf_update
+  when:
+    - rhel7STIG_stigrule_204456_Manage
+    - "'dconf' in packages"
+# R-204486 RHEL-07-021024
+
+# R-219059 RHEL-07-020111
+- name: stigrule_219059__etc_dconf_db_local_d_00_no_automount
+  ini_file:
+    path: /etc/dconf/db/local.d/00-No-Automount
+    section: org/gnome/desktop/media-handling
+    option: automount
+    value: "{{ rhel7STIG_stigrule_219059__etc_dconf_db_local_d_00_no_automount_Value }}"
+    no_extra_spaces: yes
+  notify: dconf_update
+  when:
+    - rhel7STIG_stigrule_219059_Manage
+    - "'dconf' in packages"
+- name: stigrule_219059__etc_dconf_db_local_d_00_no_automount_open
+  ini_file:
+    path: /etc/dconf/db/local.d/00-No-Automount
+    section: org/gnome/desktop/media-handling
+    option: automount-open
+    value: "{{ rhel7STIG_stigrule_219059__etc_dconf_db_local_d_00_no_automount_open_Value }}"
+    no_extra_spaces: yes
+  notify: dconf_update
+  when:
+    - rhel7STIG_stigrule_219059_Manage
+    - "'dconf' in packages"
+- name: stigrule_219059__etc_dconf_db_local_d_00_no_automount_autorun
+  ini_file:
+    path: /etc/dconf/db/local.d/00-No-Automount
+    section: org/gnome/desktop/media-handling
+    option: autorun-never
+    value: "{{ rhel7STIG_stigrule_219059__etc_dconf_db_local_d_00_no_autorun_never_Value }}"
+    no_extra_spaces: yes
+  notify: dconf_update
+  when:
+    - rhel7STIG_stigrule_219059_Manage
+    - "'dconf' in packages"
+# R-237635 RHEL-07-010343
+- name: rhel7STIG_stigrule_237635__etc_sudoers_d_timeout
+  lineinfile:
+    create: True
+    path: "{{ rhel7STIG_stigrule_237635__etc_sudoers_d_timeout_File }}"
+    line: "{{ rhel7STIG_stigrule_237635__etc_sudoers_d_timeout_Line }}"
+    #validate: /usr/bin/visudo -cf %s
