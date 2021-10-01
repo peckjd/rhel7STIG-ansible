@@ -1,7 +1,0 @@
-# R-219059 RHEL-07-020111
-rhel7STIG_stigrule_219059_Manage: True
-rhel7STIG_stigrule_219059__etc_dconf_db_local_d_00_no_automount_Value: 'automount=false
-
-automount-open=false
-
-autorun-never=true'
