@@ -1,5 +1,5 @@
 - name: populate package facts
-  package_facts:
+  ansible.builtin.package_facts:
 # R-204456 RHEL-07-020231
 - name: rhel7STIG_stigrule_204456__etc_dconf_db_local_d_00_disable_CAD
   ini_file:
@@ -13,6 +13,13 @@
     - rhel7STIG_stigrule_204456_Manage
     - "'dconf' in packages"
 # R-204486 RHEL-07-021024
+
+# R-204619 RHEL-07-040680
+- name: stigrule_204619__postconf_smtpd_client_restrictions
+  shell: "postconf -e 'smtpd_client_restrictions = {{ rhel7STIG_stigrule_204619__postconf_smtpd_client_restrictions_value }}'"
+  when: 
+    - rhel7STIG_stigrule_204619_Manage
+    - "'postfix' in packages"
 
 # R-219059 RHEL-07-020111
 - name: stigrule_219059__etc_dconf_db_local_d_00_no_automount
@@ -48,6 +55,7 @@
   when:
     - rhel7STIG_stigrule_219059_Manage
     - "'dconf' in packages"
+    
 # R-237635 RHEL-07-010343
 - name: rhel7STIG_stigrule_237635__etc_sudoers_d_timeout
   lineinfile:
@@ -55,3 +63,4 @@
     path: "{{ rhel7STIG_stigrule_237635__etc_sudoers_d_timeout_File }}"
     line: "{{ rhel7STIG_stigrule_237635__etc_sudoers_d_timeout_Line }}"
     #validate: /usr/bin/visudo -cf %s
+  when: rhel7STIG_stigrule_237635_Manage
