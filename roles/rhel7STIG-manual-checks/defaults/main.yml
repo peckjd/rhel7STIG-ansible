@@ -7,6 +7,9 @@ rhel7STIG_stigrule_204481__etc_fstab_dev_shm_Line: 'tmpfs /dev/shm tmpfs default
 # R-204619 RHEL-07-040680
 rhel7STIG_stigrule_204619_Manage: True
 rhel7STIG_stigrule_204619__postconf_smtpd_client_restrictions_value: 'permit_mynetworks, reject'
+# R-204619 RHEL-07-204623
+rhel7STIG_stigrule_204623_Manage: True
+rhel7STIG_stigrule_204623__tftp_server_args: 'server_args = -s /var/lib/tftpboot'
 # R-219059 RHEL-07-020111
 rhel7STIG_stigrule_219059_Manage: True
 rhel7STIG_stigrule_219059__etc_dconf_db_local_d_00_no_automount_Value: 'false'

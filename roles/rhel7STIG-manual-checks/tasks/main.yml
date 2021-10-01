@@ -21,6 +21,16 @@
     - rhel7STIG_stigrule_204619_Manage
     - "'postfix' in packages"
 
+# R-204623 RHEL-07-040720
+- name: stigrule_204623__tftp_server_args
+  lineinfile:
+    path: /etc/xinetd.d/tftp
+    regexp: '^\s*server_args'
+    line: "{{ rhel7STIG_stigrule_204623__tftp_server_args }}"
+  when: 
+    - rhel7STIG_stigrule_204623_Manage
+    - "'tftp-server' in packages"
+
 # R-219059 RHEL-07-020111
 - name: stigrule_219059__etc_dconf_db_local_d_00_no_automount
   ini_file:
