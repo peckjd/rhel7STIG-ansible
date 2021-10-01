@@ -1,1 +1,1 @@
-ansible-playbook -v -b -i /dev/null site.yml
+ansible-playbook -b -i /dev/null site.yml
