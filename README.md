@@ -1,3 +1,2 @@
 # rhel-7-stig-ansible
-
-Customized version of DISA's RHEL 7 STIG for Ansible
+A fork of DISA's [Ansible playbook for the RHEL 7 STIG](https://public.cyber.mil/stigs/supplemental-automation-content/)
