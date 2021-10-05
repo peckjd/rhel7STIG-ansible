@@ -144,5 +144,8 @@
     create: True
     path: "{{ rhel7STIG_stigrule_237635__etc_sudoers_d_timeout_File }}"
     line: "{{ rhel7STIG_stigrule_237635__etc_sudoers_d_timeout_Line }}"
+    owner: root
+    group: root
+    mode: '0440'
     #validate: /usr/bin/visudo -cf %s
   when: rhel7STIG_stigrule_237635_Manage
