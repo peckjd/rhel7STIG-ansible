@@ -1,5 +1,51 @@
 - name: populate package facts
   ansible.builtin.package_facts:
+
+# R-204422 RHEL-07-010270
+- name: rhel7STIG_stigrule_204422_etc_pam_d_system-auth_insert_pam_pwhistory.so
+  pamd:
+    name: system-auth
+    type: password
+    control: requisite
+    module_path: pam_pwquality.so
+    new_type: password
+    new_control: requisite
+    new_module_path: pam_pwhistory.so
+    state: after
+  when: rhel7STIG_stigrule_204422_Manage
+
+- name: rhel7STIG_stigrule_204422_etc_pam_d_system-auth_update_pam_pwhistory.so
+  pamd:
+    name: system-auth
+    type: password
+    control: requisite
+    module_path: pam_pwhistory.so
+    module_arguments: 'use_authtok remember=5 retry=3'
+    state: updated
+  when: rhel7STIG_stigrule_204422_Manage
+
+- name: rhel7STIG_stigrule_204422_etc_pam_d_password-auth_insert_pam_pwhistory.so
+  pamd:
+    name: password-auth
+    type: password
+    control: requisite
+    module_path: pam_pwquality.so
+    new_type: password
+    new_control: requisite
+    new_module_path: pam_pwhistory.so
+    state: after
+  when: rhel7STIG_stigrule_204422_Manage
+
+- name: rhel7STIG_stigrule_204422_etc_pam_d_password-auth_update_pam_pwhistory.so
+  pamd:
+    name: password-auth
+    type: password
+    control: requisite
+    module_path: pam_pwhistory.so
+    module_arguments: 'use_authtok remember=5 retry=3'
+    state: updated
+  when: rhel7STIG_stigrule_204422_Manage
+
 # R-204424 RHEL-07-010290
 - name: rhel7STIG_stigrule_204424__etc_pam_d_password-auth_remove_nullok
   replace:

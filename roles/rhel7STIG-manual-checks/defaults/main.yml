@@ -1,3 +1,5 @@
+# R-204422 RHEL-07-010270
+rhel7STIG_stigrule_204422_Manage: True
 # R-204424 RHEL-07-010290
 rhel7STIG_stigrule_204424_Manage: True
 # R-204456 RHEL-07-020231
