@@ -125,7 +125,19 @@
   when:
     - rhel7STIG_stigrule_219059_Manage
     - "'dconf' in packages"
-    
+
+# R-237634 RHEL-07-010342
+- name: rhel7STIG_stigrule_237634__etc_sudoers_d_password
+  lineinfile:
+    create: True
+    path: "{{ rhel7STIG_stigrule_237634__etc_sudoers_d_password_File }}"
+    line: "{{ rhel7STIG_stigrule_237634__etc_sudoers_d_password_Line }}"
+    owner: root
+    group: root
+    mode: '0440'
+    #validate: /usr/bin/visudo -cf %s
+  when: rhel7STIG_stigrule_237634_Manage
+
 # R-237635 RHEL-07-010343
 - name: rhel7STIG_stigrule_237635__etc_sudoers_d_timeout
   lineinfile:

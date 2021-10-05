@@ -19,6 +19,14 @@ rhel7STIG_stigrule_219059_Manage: True
 rhel7STIG_stigrule_219059__etc_dconf_db_local_d_00_no_automount_Value: 'false'
 rhel7STIG_stigrule_219059__etc_dconf_db_local_d_00_no_automount_open_Value: 'false'
 rhel7STIG_stigrule_219059__etc_dconf_db_local_d_00_no_autorun_never_Value: 'true'
+# R-237634 RHEL-07-010343
+rhel7STIG_stigrule_237634_Manage: True
+rhel7STIG_stigrule_237634__etc_sudoers_d_password_File: '/etc/sudoers.d/default-passwords'
+rhel7STIG_stigrule_237634__etc_sudoers_d_password_Line: 'Defaults !targetpw
+
+Defaults !rootpw
+
+Defaults !runaspw'
 # R-237635 RHEL-07-010343
 rhel7STIG_stigrule_237635_Manage: True
 rhel7STIG_stigrule_237635__etc_sudoers_d_timeout_File: '/etc/sudoers.d/default-timeout'
