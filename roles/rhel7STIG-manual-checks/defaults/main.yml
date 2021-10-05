@@ -1,3 +1,5 @@
+# R-204424 RHEL-07-010290
+rhel7STIG_stigrule_204424_Manage: True
 # R-204456 RHEL-07-020231
 rhel7STIG_stigrule_204456_Manage: True
 rhel7STIG_stigrule_204456__etc_dconf_db_local_d_00_disable_CAD_Value: ''''''

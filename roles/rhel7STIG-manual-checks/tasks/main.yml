@@ -1,5 +1,19 @@
 - name: populate package facts
   ansible.builtin.package_facts:
+# R-204424 RHEL-07-010290
+- name: rhel7STIG_stigrule_204424__etc_pam_d_password-auth_remove_nullok
+  replace:
+    path: /etc/pam.d/password-auth
+    regexp: 'nullok'
+    replace: ''
+  when: rhel7STIG_stigrule_204424_Manage
+- name: rhel7STIG_stigrule_204424__etc_pam_d_system-auth_remove_nullok
+  replace:
+    path: /etc/pam.d/system-auth
+    regexp: 'nullok'
+    replace: ''
+  when: rhel7STIG_stigrule_204424_Manage
+
 # R-204456 RHEL-07-020231
 - name: rhel7STIG_stigrule_204456__etc_dconf_db_local_d_00_disable_CAD
   ini_file:
