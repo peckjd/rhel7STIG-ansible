@@ -7,5 +7,7 @@
     name: sshd
     state: restarted
 - name: do_reboot
-  reboot:
-    pre_reboot_delay: 60
+  #reboot:
+  #  pre_reboot_delay: 60
+  debug:
+    msg: "System needs to be rebooted to finalize STIG application."

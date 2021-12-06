@@ -9,6 +9,3 @@
   service:
     name: sshd
     state: restarted
-- name: do_reboot
-  reboot:
-    pre_reboot_delay: 60
