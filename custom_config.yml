@@ -5,8 +5,8 @@
 rhel7STIG_stigrule_204449_Manage: False
 
 # We need to enable this rule and modify this IP after we create a log aggregator
-rhel7STIG_stigrule_204509_Manage: False
-rhel7STIG_stigrule_204509__etc_audisp_audisp_remote_conf_Line: 'remote_server = 127.0.0.1'
+rhel7STIG_stigrule_204509_Manage: true
+rhel7STIG_stigrule_204509__etc_audisp_audisp_remote_conf_Line: 'remote_server = 192.168.10.4'
 
 # Skip firewalld checks in case the system is using iptables.
 rhel7STIG_stigrule_204604_Manage: False

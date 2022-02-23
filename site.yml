@@ -1,4 +1,4 @@
-- hosts: rhel7
+- hosts: localhost
   gather_facts: no
   vars_files:
     - custom_config.yml
