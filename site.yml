@@ -4,4 +4,4 @@
     - custom_config.yml
   roles:
     - rhel7STIG
-    - rhel7STIG-manual-checks
+    - rhel7STIG-custom-checks
